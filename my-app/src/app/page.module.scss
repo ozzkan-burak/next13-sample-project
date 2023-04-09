@@ -1,3 +1,4 @@
+@import './styles/global.scss';
 .main {
   display: flex;
   flex-direction: column;
@@ -5,6 +6,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  background-color: $backgroundColor;
 }
 
 .description {
