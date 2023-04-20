@@ -11,7 +11,7 @@ body {
   display: grid;
   grid-template-columns: 1fr min(1440px, 94%) 1fr;
   grid-template-rows: 96px auto 72px;
-  color: white;
+  color: $whiteColor
 }
 
 .conatiner > * {
