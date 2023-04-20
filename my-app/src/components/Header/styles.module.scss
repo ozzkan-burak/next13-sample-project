@@ -6,7 +6,7 @@
 }
 
 .headerWrapper {
-  @include Display(flex, space-between, center);
+  @include Display(flex, space-between, center)
 }
 
 .logo{

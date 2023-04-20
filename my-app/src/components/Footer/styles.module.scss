@@ -1,0 +1,6 @@
+@import '../utilSCSS/mix';
+@import '../utilSCSS/mix';
+
+.footer {
+  @include Display(flex, center, center);
+}
