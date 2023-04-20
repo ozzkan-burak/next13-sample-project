@@ -9,15 +9,17 @@ body {
 
 .container {
   display: grid;
-  //grid-template-columns: 1fr min(1440px, 94%) 1fr;
+  grid-template-columns: 1fr min(1440px, 94%) 1fr;
   grid-template-rows: 96px auto 72px;
   color: $whiteColor
 }
 
-.conatiner > * {
-  grid-column: 2;
+.container {
+  > * {
+    grid-column: 2;
+  }
 }
 
-.conatiner > .fluid {
+.container > .fluid {
   grid-column: 1 / -1;
 }
