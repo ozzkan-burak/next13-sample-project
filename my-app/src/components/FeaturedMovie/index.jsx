@@ -1,18 +1,24 @@
-import React from 'react'
+
+import React from 'react';
+import {Link, Image} from "next";
+import { FaPlus } from "react-icons/fa";
+
+import styles from "./styles.module.scss";
+
 
 const FeaturedMoive = ({movie = {}, isCompact = true}) => {
   const { poster_path, title, overview } = movie;
 
   return (
     <div className={styles.movieWrapper}>
-      <h1 clssName={styles.movieTitle}>{title}</h1>
+      <h1 className={styles.movieTitle}>{title}</h1>
       <p className={`${styles.overview} ${
         isCompact ? styles.shortOverview : ""
       }`}>
         {overview}
       </p>
       <div className={styles.actionButtons}>
-        <Link className={styles.playButton} hre={`/movie/${movie.id}`}>
+        <Link className={styles.playButton} href={`/movie/${movie.id}`}>
           Play
         </Link>
         <button className={styles.addButton}>
