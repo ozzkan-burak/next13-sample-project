@@ -1,11 +1,12 @@
 import React from 'react';
 import Movies from "@/mocks/movies.json";
-import FeaturedMoive from '@/components/FeaturedMovie';
+import FeaturedMovie from '@/components/FeaturedMovie';
 
 const HomeContainer = () => {
+  console.log(Movies.results[0])
   return (
     <div>
-      <FeaturedMoive movie={Movies.results[0]} />
+      <FeaturedMovie movie={Movies.results[0]} />
     </div>
   )
 }

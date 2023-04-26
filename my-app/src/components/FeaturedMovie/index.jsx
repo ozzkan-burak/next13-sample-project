@@ -1,12 +1,13 @@
 
 import React from 'react';
-import {Link, Image} from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
 
 import styles from "./styles.module.scss";
 
 
-const FeaturedMoive = ({movie = {}, isCompact = true}) => {
+const FeaturedMovie = ({movie = {}, isCompact = true}) => {
   const { poster_path, title, overview } = movie;
 
   return (
@@ -38,4 +39,4 @@ const FeaturedMoive = ({movie = {}, isCompact = true}) => {
   )
 }
 
-export default FeaturedMoive
+export default FeaturedMovie
