@@ -10,7 +10,29 @@
   margin-bottom: 56px;
 }
 
-.moviePoster {}
+.moviePoster {
+  &Overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background-color: lineer-gradient(
+      0deg,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,0.9) 30%,
+      rgba(0,0,0,0.7) 50%,
+      rgba(255, 255, 255, 0) 100%
+    ); 
+    z-index: -1;
+  }
+  img {
+    height: auto !important;
+    z-index: -2;
+    max-height: 100vh;
+    object-fit: cover;
+  }
+}
 
 .movieTitle {
   font-size: 72px;

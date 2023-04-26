@@ -1,8 +1,8 @@
 import { Inter } from 'next/font/google'
-import '@/app/styles/global.scss';
+import '@/styles/global.scss';
 
-import Header from '@/app/components/Header';
-import Footer from '@/app/components/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 
 // export const metadata = {
@@ -12,7 +12,7 @@ import Footer from '@/app/components/Footer';
 
 const interFontFamily = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({ children }) {
+const RootLayout = ({ children }) => {
   return (
     <html lang="tr" className={interFontFamily.className}>
       <body className="container">
@@ -23,3 +23,5 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+
+export default RootLayout;
