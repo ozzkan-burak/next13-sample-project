@@ -1,0 +1,19 @@
+@import '../utilSCSS/mix';
+@import '../utilSCSS/variables';
+
+.categories {
+  @include Display(flex);
+  height: 72px;
+  gap: 24px;
+}
+
+.category {
+  @include Display(flex, center, center);
+  background-color: $lightBackgroundColor;
+  border: 1px solid $borderColor;
+  box-shadow: 0 5px 10px 0 $shadow;
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  font-weight: 700;
+}
