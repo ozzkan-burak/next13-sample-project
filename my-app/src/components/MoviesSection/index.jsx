@@ -1,12 +1,17 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from "./styles.module.scss";
 
-const MoviesSection = () => {
+
+
+const MoviesSection = ({movies, title}) => {
   return (
     <div className={styles.moviesSection}>
       <h3 className={styles.title}>{title}</h3>
       <div className={styles.movies}>
-        {movies.map(movie) => (
-          <div className={styles.movie} key={} >
+        {movies.map((movie) => (
+          <div className={styles.movie} key={`movie-${movie.id}`} >
             <Link href={`/movie/$movie.id`}>
               <Image
                 fill
@@ -16,7 +21,7 @@ const MoviesSection = () => {
               />
             </Link>
           </div>
-        )}
+        ))}
       </div>
     </div>
   )
