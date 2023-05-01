@@ -17,4 +17,4 @@ const HomeContainer = () => {
   )
 }
 
-export default HomeContainer
+export default HomeContainer;
