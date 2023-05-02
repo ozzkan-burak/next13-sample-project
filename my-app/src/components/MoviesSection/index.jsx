@@ -12,7 +12,7 @@ const MoviesSection = ({movies, title}) => {
       <div className={styles.movies}>
         {movies.map((movie) => (
           <div className={styles.movie} key={`movie-${movie.id}`} >
-            <Link href={`/movie/$movie.id`}>
+            <Link href={`/movie/${movie.id}`}>
               <Image
                 fill
                 unoptimized
