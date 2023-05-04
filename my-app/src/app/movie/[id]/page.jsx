@@ -6,7 +6,6 @@ import Movies from "@/mocks/movies.json";
 const MoviePage = ({params, searchParams}) => {
   
   const movieDetail = Movies.results.find((movie)=>movie.id.toString() === params.id);
-  console.log('MOVIE_DETAIL:',movieDetail)
 
   if(!movieDetail) {
     notFound()
@@ -14,6 +13,10 @@ const MoviePage = ({params, searchParams}) => {
 
   if(searchParams.error == "true") {
     throw new Error("Error happened");
+  }
+
+  if(searchParams.error === true) {
+    throw new Error("Error happened")
   }
 
   return (
