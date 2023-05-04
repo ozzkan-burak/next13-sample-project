@@ -1,5 +1,5 @@
 import React from "react";
-import {FeaturedMovie} from '@/components/FeaturedMovie';
+import FeaturedMovie from '@/components/FeaturedMovie';
 
 
 const MovieContainer = ({movie}) => {
