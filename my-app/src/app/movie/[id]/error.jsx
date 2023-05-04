@@ -5,7 +5,7 @@ import Link from "next/link";
 const Movie404 = () => {
   return (
     <div style={{
-      height: "100%",
+      height: "80vh",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
