@@ -2,5 +2,13 @@ $backgroundColor: black;
 $whiteColor: white;
 $lightGray: #fafafa;
 $lightBackgroundColor: rgba(0,0,0,0.75);
+$lightBackgroundColor2: rgba(255,255,255,0.30); 
 $borderColor: #333;
-$shadow: rgba(0,0,0,0.5); 
+$shadow: rgba(0,0,0,0.5);
+$gradient: linear-gradient(
+  90deg,
+  rgba(255,255,255,0)0,
+  rgba(255,255,255,0.25) 25%,
+  rgba(255,255,255, 0.25) 50%,
+  rgba(255,255,255,0)
+)
