@@ -1,14 +1,14 @@
 import React from 'react'
 import Skeleton from '../skeleton';
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const CategoriesLoading = () => {
   return (
     <div className={styles.categories}>
       {Array(5)
         .fill(null)
-        .map(()=> (
-          <Skeleton key={index} height={72} />
+        .map((i)=> (
+          <Skeleton key={i} height={72} />
         ))}
     </div>
   );

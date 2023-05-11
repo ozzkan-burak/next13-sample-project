@@ -3,7 +3,7 @@ import HomeContainer from '@/containers/home';
 
 import Movies from "@/mocks/movies.json";
 
-const delay = async () => {
+const delay = async (ms) => {
   return new Promise((resolve)=> setTimeout(resolve, ms));
 }
 
