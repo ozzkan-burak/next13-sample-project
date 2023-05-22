@@ -9,6 +9,8 @@ const delay = async (ms) => {
 
 
 const HomePage = async ({ params }) => {
+
+  console.log(process.env.API_KEY);
   await delay(5000);
 
   let selectCategory;
