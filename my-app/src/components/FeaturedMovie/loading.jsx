@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 
 const FeaturedMovieLoaidng = () => {
   return (
-    <div style = {{ height: 278}} classname={styles.movieWrapper}>
+    <div style = {{ height: 278}} className={styles.movieWrapper}>
       <Loading />
     </div>
   )
