@@ -3,17 +3,20 @@ import HomeContainer from '@/containers/home';
 
 import Movies from "@/mocks/movies.json";
 
-const delay = async (ms) => {
-  return new Promise((resolve)=> setTimeout(resolve, ms));
-}
+const BASE_URL = 'https://api.themoviedb.org/3';
 
+const getPopularMovies = async () => {
+  const res = await fetch(`${BASE_URL}/movie/top_rated?api_key=${process.env.API_KEY}&language=en-US&page=1`);
+
+  const data = await res.json();
+  console.log(data)
+}
 
 const HomePage = async ({ params }) => {
 
-  console.log(process.env.API_KEY);
-  await delay(5000);
-
   let selectCategory;
+
+  await getPopularMovies();
 
   if (params.category?.length > 0) {
     selectCategory = true;
