@@ -5,28 +5,33 @@ import Movies from "@/mocks/movies.json";
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+const getSingleCategory = async (genreId) => {
+  const res = await fetch(
+    `${API_URL}/discover/movie?api_key=${process.env.API_KEY}&with_genres=${genreId}`
+  )
+  return res.json();
+}
+ 
 const getCategories = async () => {
   const res = await fetch(`${BASE_URL}/genre/movie/list?api_key=${process.env.API_KEY}&language=en-US&page=1`);
 
   const data = await res.json();
   return data;
-}
-
+};
 
 const getTopReated = async () => {
   const res = await fetch(`${BASE_URL}/movie/top_rated?api_key=${process.env.API_KEY}&language=en-US&page=1`);
 
   const data = await res.json();
   return data;
-}
+};
 
 const getTopPopular = async () => {
   const res = await fetch(`${BASE_URL}/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`);
 
   const data = await res.json();
   return data;
-}
-
+};
 
 
 const HomePage = async ({ params }) => {
@@ -36,8 +41,9 @@ const HomePage = async ({ params }) => {
   const topReatedPromise = getTopReated();
   const popularPromise = getTopPopular();
   const categoryPromise = getCategories();
+  const singleCategory = getSingleCategory();
 
-  const [{result: topReatedMovies}, { results: popularMovies}, {genres: categories}] =
+  const [{result: topReatedMovies}, { results: popularMovies}, {genres: categories}, ] =
     await Promise.all([topReatedPromise, popularPromise, categoryPromise])
 
  console.log(categories)
