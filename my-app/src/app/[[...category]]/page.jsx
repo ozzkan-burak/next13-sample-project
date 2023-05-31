@@ -9,7 +9,8 @@ const getSingleCategory = async (genreId) => {
   const res = await fetch(
     `${BASE_URL}/discover/movie?api_key=${process.env.API_KEY}&with_genres=${genreId}`
   )
-  return res.json();
+  const data = await res.json();
+  return data;
 }
  
 const getCategories = async () => {
@@ -44,7 +45,7 @@ const HomePage = async ({ params }) => {
   const categoryPromise = getCategories();
   const singleCategory = getSingleCategory();
 
-  const [{result: topReatedMovies}, { results: popularMovies}, {genres: categories}, ] =
+  const [{results: topReatedMovies}, { results: popularMovies}, {genres: categories}, ] =
     await Promise.all([topReatedPromise, popularPromise, categoryPromise])
 
 

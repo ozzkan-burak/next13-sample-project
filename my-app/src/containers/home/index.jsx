@@ -12,9 +12,10 @@ const HomeContainer = (
     categories = [],
     selectedCategory
   }) => {
+    console.log(topReatedMovies)
   return (
     <div>
-      <FeaturedMovie movie={Movies?.results[0]} />
+      <FeaturedMovie movie={topReatedMovies[0]} />
       <Categories categories={Genres.genres.slice(0,5)}/>
       <MoviesSection 
         title={
