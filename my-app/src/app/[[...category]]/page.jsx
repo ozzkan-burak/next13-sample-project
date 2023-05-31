@@ -7,7 +7,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 
 const getSingleCategory = async (genreId) => {
   const res = await fetch(
-    `${API_URL}/discover/movie?api_key=${process.env.API_KEY}&with_genres=${genreId}`
+    `${BASE_URL}/discover/movie?api_key=${process.env.API_KEY}&with_genres=${genreId}`
   )
   return res.json();
 }
@@ -34,6 +34,7 @@ const getTopPopular = async () => {
 };
 
 
+
 const HomePage = async ({ params }) => {
 
   let selectCategory;
@@ -46,11 +47,11 @@ const HomePage = async ({ params }) => {
   const [{result: topReatedMovies}, { results: popularMovies}, {genres: categories}, ] =
     await Promise.all([topReatedPromise, popularPromise, categoryPromise])
 
- console.log(categories)
 
 
   if (params.category?.length > 0) {
-    selectCategory = true;
+    const {results} = await getSingleCategory(params.category[0]);
+    selectCategory = results;
   }
 
   return (
@@ -60,7 +61,7 @@ const HomePage = async ({ params }) => {
       categories={categories}
       selectedCategory={{
         id: params.category?.[0] ?? "",
-        movies: selectCategory ? Movies.results.slice[0, 7] : [],
+        movies: selectCategory ? selectCategory.slice[0, 7] : [],
       }}
       />
   );
