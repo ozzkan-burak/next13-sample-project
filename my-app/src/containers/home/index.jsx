@@ -12,7 +12,7 @@ const HomeContainer = (
     categories = [],
     selectedCategory
   }) => {
-    console.log(topReatedMovies)
+    console.log(selectedCategory)
   return (
     <div>
       <FeaturedMovie movie={topReatedMovies[0]} />
