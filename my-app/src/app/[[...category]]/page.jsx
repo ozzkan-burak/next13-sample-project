@@ -45,9 +45,11 @@ const HomePage = async ({ params }) => {
   const categoryPromise = getCategories();
   const singleCategory = getSingleCategory();
 
-  const [{results: topReatedMovies}, { results: popularMovies}, {genres: categories}, ] =
-    await Promise.all([topReatedPromise, popularPromise, categoryPromise])
-
+  const [
+    {results: topReatedMovies},
+    { results: popularMovies},
+    {genres: categories},
+  ]= await Promise.all([topReatedPromise, popularPromise, categoryPromise])
 
 
   if (params.category?.length > 0) {
@@ -55,13 +57,14 @@ const HomePage = async ({ params }) => {
     selectCategory = results;
   }
 
+
   return (
     <HomeContainer
       topReatedMovies={topReatedMovies}
       popularMovies={popularMovies}
       categories={categories}
       selectedCategory={{
-        id: params.category?.[0] ?? "",
+        id: params?.category?.[1] ?? "",
         movies: selectCategory ? selectCategory.slice[0, 7] : [],
       }}
       />
