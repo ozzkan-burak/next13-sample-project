@@ -1,15 +1,15 @@
 import React from 'react'
 import HomeContainer from '@/containers/home';
 
-import Movies from "@/mocks/movies.json";
-
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 const getSingleCategory = async (genreId) => {
+  console.log(genreId)
   const res = await fetch(
     `${BASE_URL}/discover/movie?api_key=${process.env.API_KEY}&with_genres=${genreId}`
   )
   const data = await res.json();
+
   return data;
 }
  
@@ -43,7 +43,6 @@ const HomePage = async ({ params }) => {
   const topReatedPromise = getTopReated();
   const popularPromise = getTopPopular();
   const categoryPromise = getCategories();
-  const singleCategory = getSingleCategory();
 
   const [
     {results: topReatedMovies},
@@ -53,7 +52,7 @@ const HomePage = async ({ params }) => {
 
 
   if (params.category?.length > 0) {
-    const {results} = await getSingleCategory(params.category[0]);
+    const {results} = await getSingleCategory(params.category[1]);
     selectCategory = results;
   }
 
@@ -65,7 +64,7 @@ const HomePage = async ({ params }) => {
       categories={categories}
       selectedCategory={{
         id: params?.category?.[1] ?? "",
-        movies: selectCategory ? selectCategory.slice[0, 7] : [],
+        movies: selectCategory ? selectCategory.slice(0, 7) : [],
       }}
       />
   );
