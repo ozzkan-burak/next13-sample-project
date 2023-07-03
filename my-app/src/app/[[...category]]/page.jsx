@@ -1,16 +1,12 @@
 import React from 'react'
 import HomeContainer from '@/containers/home';
+import fetchMovieAPI from '@/services/movie';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-const getSingleCategory = async (genreId) => {
-  console.log(genreId)
-  const res = await fetch(
-    `${BASE_URL}/discover/movie?api_key=${process.env.API_KEY}&with_genres=${genreId}`
-  )
-  const data = await res.json();
 
-  return data;
+const getSingleCategory = async (genreId) => {
+  return fetchMovieAPI('/discover/movie', `with_genres=${genreId}`);
 }
  
 const getCategories = async () => {
